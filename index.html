@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <title>French Verb Marker</title>
+    <style>
+      div.save_button {
+        position: absolute;
+        top: 80px;
+        left: 750px;
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+      }
+      div.dictionary_button {
+        position: absolute;
+        top: 80px;
+        left: 620px;
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+      }
+      div.text_box {
+        position: absolute;
+        top: 140px;
+        left: 10px;
+        width: 800px;
+        height: 500px;
+        overflow-y:scroll;
+        font-size: 20px;
+        border-style: inset;
+        padding: 10px 10px 10px 10px;
+      }
+      .menu {
+          position: absolute;
+          top: 130px;
+          left: 850px;
+          width: 200px;
+          padding:10px 0px 10px 0px;
+          color:white;
+          margin: 0 auto;
+      }
+      div.msg {
+          position: absolute;
+          top: 660px;
+          left: 20px;
+          width: 1200px;
+          padding:10px 0px 10px 0px;
+          color:darkgrey;
+          margin: 0 auto;
+      }
+      div.label_frequency_chart {
+          position: absolute;
+          top: 140px;
+          left: 1070px;
+          width: 200px;
+          height: 200px;
+          padding:10px 0px 10px 0px;
+          margin: 0 auto;
+      }
+      .button1 { /* present indicative */
+        background-color: #222222;
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button2 { /* present subjunctive */
+        background-color: #88FF88;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button3 { /* imperfect indicative */
+        background-color: #aaddFF;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button4 { /* imperfect subjunctive */
+        background-color: #00aa00;
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button5 { /* future */
+        background-color: #FFbbdd;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button6 { /* conditional present */
+        background-color: #bb66FF;
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button7 { /* present participle */
+        background-color: #FFFF55;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button8 { /* past participle */
+        background-color: #bbbbbb;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button9 { /* simple past */
+        background-color: #FFaa00;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button10 { /* infinitive */
+        background-color: #0000FF;
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button_reset { /* infinitive */
+        background-color: #FFFFFF;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 180px;
+      }
+      .button_save { /* infinitive */
+        background-color: #cccccc;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 80px;
+      }
+      .button_dictionary { /* infinitive */
+        background-color: #cccccc;
+        color: black;
+        padding: 10px;
+        font-size: 15px;
+        display: block;
+        border-radius: 8px;
+        margin: 4px 2px;
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>French Verb Marker</h1>
+    <div>
+      Select your text file:
+      <input type="file"
+         id="input_file" name="input_file" accept=".txt">
+    </div>
+    <div>
+      Select your vm (verb marker) index file.
+      <input type="file"
+         id="input_index_file" name="input_index_file" accept=".vmindex">
+    </div>
+    <div class="save_button">
+      <button id="button_save" class="button_save" onclick="save()">Save</button>
+    </div>
+    <div class="dictionary_button">
+      <button id="button_dictionary" class="button_dictionary" onclick="dictionary()">Dictionary</button>
+    </div>
+    <div class='text_box' id='main_text'></div>
+    <div class="menu">
+      <button class="button1" onclick="highlightSelected(0)"
+         id="button1">Present Indicative</button>
+      <button class="button2" onclick="highlightSelected(1)"
+         id="button2">Present Subjunctive</button>
+      <button class="button3" onclick="highlightSelected(2)"
+         id="button3">Imperfect Indicative</button>
+      <button class="button4" onclick="highlightSelected(3)"
+         id="button4">Imperfect Subjunctive</button>
+      <button class="button5" onclick="highlightSelected(4)"
+         id="button5">Future</button>
+      <button class="button6" onclick="highlightSelected(5)"
+         id="button6">Conditional Present</button>
+      <button class="button7" onclick="highlightSelected(6)"
+         id="button7">Present Participle</button>
+      <button class="button8" onclick="highlightSelected(7)"
+         id="button8">Past Participle</button>
+      <button class="button9" onclick="highlightSelected(8)"
+         id="button9">Simple Past</button>
+      <button class="button10" onclick="highlightSelected(9)"
+         id="button10">Infinitive</button>
+      <br>
+      <button class="button_reset" onclick="highlightSelected(10)"
+         id="button_reset">Reset</button>
+
+    </div>
+    <div class="msg" id="log"></div>
+    <div class='label_frequency_chart'><canvas id="label_frequency_chart"></canvas></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      //color
+      var bgcolor = ['#222222', '#88FF88', '#aaddFF','#00aa00', '#FFbbdd', '#bb66FF', '#FFFF55', '#bbbbbb', '#FFaa00', '#0000FF', '#FFFFFF'];
+      var fgcolor = ['white','black','black','white','black','white','black','black','black','white', 'black'];
+      var labelNames = ['Present Indicative', 'Present Subjunctive', 'Imperfect Indicative',
+                        'Imperfect Subjunctive', 'Future', 'Conditional Present',
+                        'Present Participle', 'Past Participle', 'Simple Past', 'Infinitive'];
+      var verbLabels = [];  // to store all the labeled word indices
+      var input_text_file_name = '';  // used to create an output index file
+      var nParagraphs = 0;  // number of paragraphs
+      var verbLabelFrequency = Array(labelNames.length).fill(0);
+
+      // disable right-click menu
+      if (document.addEventListener) {
+          document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+          }, false);
+      } else {
+          document.attachEvent('oncontextmenu', function() {
+            window.event.returnValue = false;
+          });
+      }
+
+      // draw a pie chart indicating marked verb label frequency
+      var frequencyPieChart = drawLabelFrequencyPieChart()
+
+      // read input text file and display file content
+      document.getElementById('input_file').onchange = function(){
+        var file_reader = new FileReader();
+        input_text_file_name = this.files[0].name
+        file_reader.onload = processFile(this.files[0]);
+        function processFile(theFile){
+          return function(e) {
+            var theBytes = e.target.result;
+            var paragraphs = theBytes.split("\n")
+            nParagraphs = paragraphs.length
+            for (i=0; i<paragraphs.length; i++) {
+                var words = paragraphs[i].split(" ");
+                for (j=0; j<words.length; j++) {
+                    // remove .,!? from word and this will be put into the space node.
+                    // sometimes multiple punctuations occur together (e.g. ...,)
+                    var punctuations = words[j].match(/[.,!?:;"/)]+$/)
+                    var punctuationStr = punctuations ? punctuations[0] : '';
+                    words[j] = words[j].substring(0, words[j].length - punctuationStr.length);
+                    // split e.g. j'ai into j and ai and Va-tu to Va and tu and Qu’est-ce to Qu, est and ce.
+                    var fineDelimiters = words[j].match(/['’/(-]/g)
+                    var fineSplitWords = words[j].split(/['’/(-]/)
+                    addFineSplitWords(fineSplitWords, fineDelimiters, 'word_' + i + '.' + j)
+                    // add space and punctuation between words
+                    if (j < words.length - 1){  // not the last word of a paragraph
+                      space = document.createTextNode(punctuationStr + " ");
+                    } else {  // last word of a paragraph
+                      space = document.createTextNode(punctuationStr);
+                    }
+                    document.getElementById("main_text").appendChild(space);
+                }
+                br = document.createElement("br");
+                document.getElementById("main_text").appendChild(br);
+            }
+          }
+        }
+        file_reader.readAsText(this.files[0]);
+      }
+
+      // read index file and highlight was was on the index file
+      document.getElementById('input_index_file').onchange = function(){
+        var file_reader = new FileReader();
+        file_reader.onload = processFile(this.files[0]);
+        function processFile(theFile){
+          return function(e) {
+            var theBytes = e.target.result;
+            var labels = theBytes.split("\n")
+            for (i=0; i<labels.length; i++) {
+                [word_id, label_index] = labels[i].split('-')
+                //document.getElementById("log").innerHTML = "word_id=" + word_id + "\n" + "label_index=" + label_index
+                highlight("word_" + word_id, label_index)
+            }
+          }
+        }
+        file_reader.readAsText(this.files[0]);
+      }
+
+      // display selected text and its positions
+      document.getElementById("main_text").onclick = function() {
+        [startWord, startOffset, endWord, endOffset, selectedText] = getSelectedRange()
+        if (selectedText) {
+          var wordmatchStart = startWord.match(/^word_(\d+).(\d+.\d+)/)
+          var paragraphIdStart = wordmatchStart[1]
+          var wordIdsStart = wordmatchStart[2]
+          var wordmatchEnd = endWord.match(/^word_(\d+).(\d+.\d+)/)
+          var paragraphIdEnd = wordmatchEnd[1]
+          var wordIdsEnd = wordmatchEnd[2]
+          var approxLocation = paragraphIdStart / nParagraphs * 100
+          var display_str = "selection: paragraph " + paragraphIdStart + " word " + wordIdsStart + " - paragraph " + paragraphIdEnd + " word " + wordIdsEnd + ' (' + approxLocation.toFixed(1) + '%)';
+          document.getElementById("log").innerHTML = display_str
+        }
+      }
+
+      function highlightSelected(index){
+          //highlight a selected text as the label referred to by the index
+          //e.g. Infinitive: index=10
+          //document.getElementById("main_text").style.backgroundColor = bgcolor[index]
+          //document.getElementById("main_text").style.color = fgcolor[index]
+          [startWord, startOffset, endWord, endOffset, selectedText] = getSelectedRange()
+          if (startWord == endWord) {
+              highlight(startWord, index)
+          }
+      }
+      function highlight(word_id, index){
+          //highlight a word with a given index
+          //word id eg. word_0.1.0  (it's the id of the span element)
+          document.getElementById(word_id).style.backgroundColor = bgcolor[index]
+          document.getElementById(word_id).style.color = fgcolor[index]
+          if(index != 10){  // except a 'reset' index
+              document.getElementById(word_id).setAttribute("class", "verb" + index);
+              verbLabelFrequency[index]++;
+          } else {  // a 'reset' index
+              document.getElementById(word_id).removeAttribute("class")
+              verbLabelFrequency[index]--;
+          }
+          frequencyPieChart.update()
+      }
+      function getSelectedRange(){
+        sel = window.getSelection();
+        if (sel.rangeCount && sel.getRangeAt) {
+          var selectedText = sel.getRangeAt(0);
+          var startWord = sel.anchorNode.parentElement.getAttribute('id')
+          var endWord = sel.focusNode.parentElement.getAttribute('id')
+          var startOffset = sel.anchorOffset;
+          var endOffset = sel.focusOffset;
+          return [startWord, startOffset, endWord, endOffset, selectedText];
+        } else { return ['', -1, '', -1, '']; }
+      }
+      function addFineSplitWords (fineSplitWords, delimiters, idPrefix){
+          // take an array of split words (fineSplitWords) and the split delimiter (delimiter)
+          for (k=0; k<fineSplitWords.length; k++){
+            var newWord = document.createElement("span");
+            newWord.setAttribute('id', idPrefix + '.' + k)  // sentence index . word index . split word index
+            newWord.innerText = fineSplitWords[k];
+            document.getElementById("main_text").appendChild(newWord);
+            // add delimiter (e.g. ', -) and a space
+            if (k < fineSplitWords.length - 1){  // not the last word in a word set
+              var delimiterNode = document.createTextNode(delimiters[k]);
+              document.getElementById("main_text").appendChild(delimiterNode);
+            }
+        }
+      }
+      function findAllLabels(){
+          window.verbLabels = []
+          var spans = document.getElementsByTagName("span")
+          for(i=0; i<spans.length; i++){
+              var spanclass = spans[i].getAttribute('class')
+              if (spanclass) {
+                  classmatch = spanclass.match(/^verb(\d+)/)
+                  if (classmatch) {
+                      verb_label_index = classmatch[1]
+                      if (verb_label_index != 10) { // exclude the 'reset' class
+                          wordmatch = spans[i].id.match(/^word_(\d+.\d+.\d+)/)
+                          wordIndex = wordmatch[1] // paragraph index . word index . fine split word index (e.g. 8.53.0)
+                          window.verbLabels.push(wordIndex + '-' + verb_label_index)
+                      }
+                  }
+              }
+          }
+      }
+      function save(){
+          findAllLabels()
+          //document.getElementById("log").innerHTML = "<pre>" + window.verbLabels.join('\n') + "</pre>"
+          var fileContent = window.verbLabels.join('\n');
+          var bb = new Blob([fileContent ], { type: 'text/plain' });
+          var a = document.createElement('a');
+          var date = new Date()
+          a.download = input_text_file_name + '.' + date.toISOString().substring(0,19) + '.vmindex';
+          a.href = window.URL.createObjectURL(bb);
+          a.click();
+      }
+      function dictionary(){
+          dictionaryBaseUrl = 'https://www.collinsdictionary.com/dictionary/french-english/';
+          [startWord, startOffset, endWord, endOffset, selectedText] = getSelectedRange();
+          dictWindow = window.open(dictionaryBaseUrl + selectedText, 'Dictionary', 'width=600,height=600');
+          dictWindow.focus();
+          return false;
+      }
+      function drawLabelFrequencyPieChart(){
+          const ctx = document.getElementById('label_frequency_chart').getContext('2d');
+          const myChart = new Chart(ctx, {
+              type: 'pie',
+              data: {
+                  labels: labelNames,
+                  datasets: [{
+                      data: verbLabelFrequency,
+                      backgroundColor: bgcolor,
+                      borderWidth: 0,
+                      hoverOffset: 2
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  plugins: { legend: { display: false }}
+              }
+          });
+          return myChart;
+        }
+    </script>
+  </body>
+</html>
