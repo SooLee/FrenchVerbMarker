@@ -21,7 +21,7 @@ Then, open a text file and mark verbs by selecting each verb and pressing one of
 The user can save the current marks by clicking 'Save' to save it into a vm index file. It will most likely be saved in your `Downloads` folder. You can reuse the existing vm index next time by opening it as the vm index file. This way you can start from where you left off last time. Every time you press the 'Save' button, it saves it into a new vm index file, with the file name containing the time stamp.
 
 ### Dictionary
-The dictionary button is useful for learning new words. Simply select any text (mostly a word) and press the dictionary button.
+The dictionary button is useful for learning new words. Simply select any text and press the dictionary button. Mostly the selection would be a word but can be multiple words or a part of a word as long as it is in the dictionary.
 
 ![](FrenchVerbMarker_dictionary_example.png)
 
@@ -30,10 +30,10 @@ The dictionary button is useful for learning new words. Simply select any text (
 * To load another text (or the same text again), opening a new text file would not work because it will add to the end of the current text. Refresh the page by using Ctrl-R instead and start over. Make sure to save what you have before refreshing.
 * It requires the internect connection because it is used for drawing the piechart whih keeps track of the verb type frequency.
 * If you modify the text outside the app, your previously saved vm index files may no longer work.
-* The text's main special characters including `.`, `,`, `?`, `!`, `"`, `'` etc should be the standard ASCII characters and should not be something non-standard (e.g. `“` instead of `"`). Otherwise the word definition (see below) would not work properly.
+* The text's main special characters including `.`, `,`, `?`, `!`, `"`, `'`, `-` etc should be the standard ASCII characters and should not be something non-standard (e.g. `“` instead of `"`). Otherwise the word definition (see below) would not work properly.
 
 ## Unit of marking
-* For convenience, a 'word,' as the unit of marking, does not contain any special character. For example, `J'ai` is not a word but only the `ai` part is. In `Qu'est-ce`, only the `est` part is a word. If you select past the boundary of a word, the marker would not work, though the dictionary could still work if it exists. For example, `peut-être` may exist in the dictionary as a word, but you won't be able to mark the whole thing as a verb (of course it is also not a verb).
+* For convenience, a 'word,' as the unit of marking, does not contain any special character. For example, you cannot mark `J'ai` but only the `ai` part. In `Qu'est-ce`, only the `est` part can be marked and not the whole thing. If you select past the boundary of a word, the marker would not work. For example, `peut-être` may exist in the dictionary as a single word, but you won't be able to mark the whole thing as a verb (of course it is also not a verb).
 * You may think `avait vu` for example must be marked as a single tense **pluperfect**. With this app, you would mark `avait` as **imperfect indicative** and `vu` as **past participle**.
 * There is no **imperative** in the menu, since it is mostly the same as the **present indicative**.
 
