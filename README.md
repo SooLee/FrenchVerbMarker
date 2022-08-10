@@ -2,7 +2,7 @@
 * A web page that allows the user to mark French verbs according to their tense / mood.
 
 ## Disclaimer
-I wrote this to aid my own French learning. I understand most people would not use this kind of learning approach, but it works for me and I'm sharing this code not to open a discussion about what the best way to learn French is, but for those who think it may benefit them. 
+I wrote this to aid my own French learning in Jan 2022 and I have been using it for seven months consistently so far. I understand most people would not use this kind of learning approach, but it works for me and I'm sharing this code not to open a discussion about how best to learn French, but for those who think it may benefit them. 
 
 ## Example screen shot
 
