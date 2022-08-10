@@ -37,4 +37,5 @@ The dictionary button is useful for learning new words. Simply select any text a
 * You may think `avait vu` for example must be marked as a single tense **pluperfect**. With this app, you would mark `avait` as **imperfect indicative** and `vu` as **past participle**.
 * There is no **imperative** in the menu, since it is mostly the same as the **present indicative**.
 
-
+## Size of input
+* I tested it with a 500kb text file and it worked fine on my Macbook computer.
