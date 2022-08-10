@@ -30,7 +30,7 @@ The dictionary button is useful for learning new words. Simply select any text (
 * To load another text (or the same text again), opening a new text file would not work because it will add to the end of the current text. Refresh the page by using Ctrl-R instead and start over. Make sure to save what you have before refreshing.
 * It requires the internect connection because it is used for drawing the piechart whih keeps track of the verb type frequency.
 * If you modify the text outside the app, your previously saved vm index files may no longer work.
-* The text's main special characters including `.`, `,`, `?`, `!`, `"`, `'` etc should only be the standard ASCII characters and should not be something non-standard (e.g. `“` instead of `"`). Otherwise the word definition (see below) would not work properly.
+* The text's main special characters including `.`, `,`, `?`, `!`, `"`, `'` etc should be the standard ASCII characters and should not be something non-standard (e.g. `“` instead of `"`). Otherwise the word definition (see below) would not work properly.
 
 ## What is a word?
 * For convenience, a 'word,' as the unit of marking, does not contain any special character. For example, `J'ai` is not a word but only the `ai` part is. In `Qu'est-ce`, only the `est` part is a word. If you select past the boundary of a word, the marker would not work, though the dictionary could still work if it exists. For example, `peut-être` may exist in the dictionary as a word, but you won't be able to mark the whole thing as a verb (of course it is also not a verb).
