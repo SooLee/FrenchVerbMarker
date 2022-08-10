@@ -35,6 +35,6 @@ The dictionary button is useful for learning new words. Simply select any text (
 ## Unit of marking
 * For convenience, a 'word,' as the unit of marking, does not contain any special character. For example, `J'ai` is not a word but only the `ai` part is. In `Qu'est-ce`, only the `est` part is a word. If you select past the boundary of a word, the marker would not work, though the dictionary could still work if it exists. For example, `peut-être` may exist in the dictionary as a word, but you won't be able to mark the whole thing as a verb (of course it is also not a verb).
 * You may think `avait vu` for example must be marked as a single tense **pluperfect**. With this app, you would mark `avait` as **imperfect indicative** and `vu` as **past participle**.
-* There is no **imperative** in the menu, since it is mostly the same as the present indicative.
+* There is no **imperative** in the menu, since it is mostly the same as the **present indicative**.
 
 
